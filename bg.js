@@ -3,7 +3,7 @@ const IMG_NUMBER = 9
 
 function putImg(imgNum) {
     const image = new Image();
-    image.src = `./imgs/${imgNum+1}.jpg`;
+    image.src = `/nomad-todo/imgs/${imgNum+1}.jpg`;
     image.classList.add("backgroundImg");
     body.appendChild(image);
 }
