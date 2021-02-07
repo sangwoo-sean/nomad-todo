@@ -9,12 +9,10 @@ function getWeather(lat, long) {
         return result.json();
     })
     .then((json) => {
-        console.log(json)
         const temp = json.main.temp;
         const place = json.name;
-        weather.innerHTML = `${Math.round(temp)}ºC @ ${place}`
+        weather.innerHTML = `${Math.round(temp)}ºC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${place}`
     })
-    
 }
 
 function saveCoords(coords) {
@@ -47,7 +45,6 @@ function loadCoords() {
         askForCoords();
     } else {
         const parseCoords = JSON.parse(loadedCoords);
-        console.log(parseCoords);
         getWeather(parseCoords.latitude, parseCoords.longitude);
     }
 }
