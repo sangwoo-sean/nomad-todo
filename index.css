@@ -97,6 +97,10 @@ li {
     align-items: center;
     align-content: center;
     margin: 12px 0;
+    text-shadow: -1px 0 rgb(63, 63, 63),
+                    0 1px rgb(63, 63, 63),
+                    1px 0 rgb(63, 63, 63),
+                    0 -1px rgb(63, 63, 63);
 }
 
 li span {
@@ -120,6 +124,7 @@ button {
     align-items: center;
     align-content: center;
     margin: 12px 0;
+
 }
 
 .doneBtn.check {
