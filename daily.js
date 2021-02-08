@@ -86,9 +86,11 @@ function addDaily(text, check) {
 
 function handleSubmit(event) {
     event.preventDefault();
-    const currentValue = dailyInput.value;    
-    addDaily(currentValue, false);
-    dailyInput.value = "";
+    const currentValue = dailyInput.value;
+    if (currentValue.length > 0){  
+        addDaily(currentValue, false);
+        dailyInput.value = "";
+    }
     
 }
 

@@ -43,10 +43,11 @@ function addToDo(text) {
 
 function handleSubmit(event) {
     event.preventDefault();
-    const currentValue = todoInput.value;    
-    addToDo(currentValue);
-    todoInput.value = "";
-    
+    const currentValue = todoInput.value;
+    if (currentValue.length > 0){  
+        addToDo(currentValue);
+        todoInput.value = "";
+    }
 }
 
 function loadToDos() {
