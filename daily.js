@@ -54,7 +54,7 @@ function addDaily(text, check) {
     const checkBtn = document.createElement("button");
     const delBtn = document.createElement("button");
     const span = document.createElement("span");
-    const newId = dailys.length +1;
+    const newId = dailys.length + 1;
     checkBtn.addEventListener("click", checkDaily);
     delBtn.innerText = "X";
     delBtn.addEventListener("click", delDaily);
@@ -77,8 +77,8 @@ function addDaily(text, check) {
     // 로컬스토리지
     const aDaily = {
         text: text,
-        id : newId,
-        check : check
+        id: newId,
+        check: check
     };
     dailys.push(aDaily);
     saveDailys();
@@ -87,16 +87,16 @@ function addDaily(text, check) {
 function handleSubmit(event) {
     event.preventDefault();
     const currentValue = dailyInput.value;
-    if (currentValue.length > 0){  
+    if (currentValue.length > 0) {
         addDaily(currentValue, false);
         dailyInput.value = "";
     }
-    
+
 }
 
 function loadDailys() {
     const storageDailys = localStorage.getItem(DAILY_LOCAL_STORAGE);
-    if (storageDailys !== null){
+    if (storageDailys !== null) {
         const parsed = JSON.parse(storageDailys)
         parsed.forEach((each) => addDaily(each.text, each.check));
     }
