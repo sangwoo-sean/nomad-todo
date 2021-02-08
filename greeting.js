@@ -27,7 +27,7 @@ function paintGreeting(text) {
     greeting.classList.add(SHOWING_CLASS_NAME);
     if (time < 12) {
         greeting.innerText = `Good Morning ${text}`;
-    } else if (time > 18) {
+    } else if (time >= 18) {
         greeting.innerText = `Good Evening ${text}`;
     } else {
         greeting.innerText = `Good Afternoon ${text}`;
