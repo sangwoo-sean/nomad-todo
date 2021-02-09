@@ -53,7 +53,7 @@ function calTime(targetTime) { // 이걸 표시할때 계속초가 줄어들도�
     const currentTime = new Date();
     const due = targetTime - currentTime;
     const DAY_TIME = 1000 * 60 * 60 * 24;
-    const dayDue = Math.floor(due / DAY_TIME) - 1;
+    const dayDue = Math.floor(due / DAY_TIME);
     const HOUR_TIME = 1000 * 60 * 60;
     const hourDue = Math.floor((due % DAY_TIME) / HOUR_TIME);
     const MIN_TIME = 1000 * 60;
