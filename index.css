@@ -114,7 +114,7 @@ ul {
 }
 
 li {
-    width: 100%;
+    width: 110%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -131,6 +131,14 @@ li span {
     flex-flow: wrap;
 }
 
+
+li button:not(.check) {
+    color: transparent;
+}
+
+li button:not(.check):hover {
+    color: white;
+}
 
 button {
     color: white;
