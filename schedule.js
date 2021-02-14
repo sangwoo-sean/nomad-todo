@@ -53,27 +53,27 @@ function calTime(targetTime) { // 이걸 표시할때 계속초가 줄어들도�
     const currentTime = new Date();
     const due = targetTime - currentTime;
     const DAY_TIME = 1000 * 60 * 60 * 24;
-    const dayDue = Math.ceil(due / DAY_TIME);
+    const dayDue = Math.floor(due / DAY_TIME); // 1일 +a 면 1일
     const HOUR_TIME = 1000 * 60 * 60;
-    const hourDue = Math.ceil((due % DAY_TIME) / HOUR_TIME);
+    const hourDue = Math.floor((due % DAY_TIME) / HOUR_TIME);   // 1시간 +a 면 1시간
     const MIN_TIME = 1000 * 60;
-    const minDue = Math.ceil((due % HOUR_TIME) / MIN_TIME);
+    const minDue = Math.floor((due % HOUR_TIME) / MIN_TIME); // 1분 +a 면 2분
     // console.log(dayDue, hourDue, minDue);
     // const SEC_TIME = 1000;
     // const secDue = Math.floor((due % MIN_TIME) / SEC_TIME);
-    if (dayDue > 0 && hourDue >= 0 && minDue >= 0) {
+    if (dayDue > 0 && hourDue >= 0 && minDue >= 0) { // 1일 0시간 0분 -> 0일 23시간 59분으로 넘어가면 false
         return (
             `${dayDue}일 후`
         );
-    } else if (dayDue <= 0 && hourDue > 0 && minDue >= 0) {
+    } else if (dayDue == 0 && hourDue > 0 && minDue >= 0) { // 0일 1시간 0분-> 0일 0시간 59분 으로 넘어가면 false
         return (
             `${hourDue}시간 후`
         );
-    } else if (dayDue <= 0 && hourDue <= 0 && minDue > 0) {
+    } else if (dayDue == 0 && hourDue == 0 && minDue >= 0) { // 0일 0시간 0분 까지 true
         return (
             `${minDue}분 후`
         );
-    } else if (dayDue <= 0 && hourDue <= 0 && minDue <= 0) {
+    } else if (due <= 0) {
         return (
             `PAST`
         );
